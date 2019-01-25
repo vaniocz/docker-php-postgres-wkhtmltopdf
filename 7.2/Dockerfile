@@ -18,4 +18,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/* && \
     pecl install imagick-3.4.3 && docker-php-ext-enable imagick && \
     docker-php-ext-install exif && \
-    docker-php-ext-configure exif --enable-exif && \
+    docker-php-ext-configure exif --enable-exif
