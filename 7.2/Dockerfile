@@ -2,20 +2,14 @@ FROM vanio/php-postgres:7.2
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
-    zlib1g \
     fontconfig \
-    libfreetype6 \
-    libx11-6 \
-    libxext6 \
     libxrender1 \
-    libssl-dev \
-    libmagickwand-dev \
-    ghostscript && \
-    wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && \
-    tar vxf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz && \
-    cp wkhtmltox/bin/wk* /usr/local/bin/ && \
-    rm -rf wkhtmltox && \
-    rm -rf /var/lib/apt/lists/* && \
+    xfonts-75dpi \
+    xfonts-base \
+    libmagickwand-dev && \
+    wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb && \
+    dpkg -i wkhtmltox_0.12.5-1.stretch_amd64.deb && \
+    apt-get install -f && \
     pecl install imagick-3.4.3 && docker-php-ext-enable imagick && \
     docker-php-ext-install exif && \
     docker-php-ext-configure exif --enable-exif
