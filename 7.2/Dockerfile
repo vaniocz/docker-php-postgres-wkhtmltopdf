@@ -7,8 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xfonts-75dpi \
     xfonts-base \
     libmagickwand-dev && \
-    wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.buster_amd64.deb && \
-    dpkg -i wkhtmltox_0.12.5-1.buster_amd64.deb && \
+    wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_amd64.deb && \
+    dpkg -i wkhtmltox_0.12.6-1.buster_amd64.deb && \
     apt-get install -f && \
     pecl install imagick-3.4.3 && docker-php-ext-enable imagick && \
     docker-php-ext-install exif && \
